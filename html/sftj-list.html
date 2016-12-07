@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<title>司法统计分析-排名详情</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<script type="text/javascript" src="../js/common/jQuery.v1.11.1.min.js"></script>
+</head>
+<body class="fd-body" data-js="js/sftj-list.js">
+    <div class="fd-list-container" ng-controller="sftjListCtrl">
+    	<div class="fd-page-bottom fd-list-con">
+    		<h3 class="fd-list-title">
+                <span></span>
+                <a class="fd-list-btn-download js-dowmload">全部导出</a>
+            </h3>
+    		<p class="fd-btn-container">
+                <a class="fd-list-btn js-list-btn fd-btn-style fd-active" data="0" data-name="AJS"><span class="fd-list-btn-text ">数量</span><span class="fd-arrow-down js-arrow"></span></a>
+                <a class="fd-list-btn js-list-btn fd-btn-style" data="" data-name="TB"><span class="fd-list-btn-text">同比</span><span class="fd-arrow-down js-arrow"></span></a></p>
+    		<div class="fd-content-list">
+    			<ul class="fd-list-ul">
+    				<li class="fd-list-li">
+    					<table class="fd-table-containter">
+    						<tr ng-repeat="x in list1">
+		    				    <td class="fd-first-td" >
+                                    <span class="fd-list-num" ng-bind="index+$index"></span>
+                                    <span ng-bind-html-unsafe="fymcSubstring(x.fymc)" data="{{x.fymc}}" ng-mouseenter="fymcHover($event,$event.target)" ng-mouseleave="hideFymc()"></span></td>
+		    				    <td ng-bind="x.ajs"></td>
+		    				    <td ng-bind-html-unsafe="handleTb(x.tb)" ng-class="{'fd-td-color-up':changeStyleUp(x.tb),'fd-td-color-down':changeStyleDown(x.tb)}"></td>
+                                <td ng-bind-html-unsafe="handleZb(x.zb)" ng-show="isXq();"></td>
+    						</tr>
+    						
+    					</table>
+    				</li>
+    				<li class="fd-list-li">
+    					<table class="fd-table-containter">
+    						<tr ng-repeat="n in list2">
+		    				    <td class="fd-first-td" >
+                                    <span class="fd-list-num" ng-bind="index+10+$index"></span>
+                                    <span ng-bind-html-unsafe="fymcSubstring(n.fymc)" data="{{n.fymc}}" ng-mouseenter="fymcHover($event,$event.target)" ng-mouseleave="hideFymc()"></span></td>
+		    				    <td ng-bind="n.ajs">72541</td>
+		    				    <td ng-bind-html-unsafe="handleTb(n.tb)" ng-class="{'fd-td-color-up':changeStyleUp(n.tb),'fd-td-color-down':changeStyleDown(n.tb)}"></td>
+                                <td ng-bind-html-unsafe="handleZb(n.zb)" ng-show="isXq();"></td>
+    						</tr>
+    						
+    					</table>
+    				</li>
+    				<li class="fd-list-li">
+    					<table class="fd-table-containter">
+    						<tr ng-repeat="m in list3">
+		    				    <td class="fd-first-td">
+                                    <span class="fd-list-num" ng-bind="index+20+$index"></span>
+                                    <span ng-bind-html-unsafe="fymcSubstring(m.fymc)" data="{{m.fymc}}" ng-mouseenter="fymcHover($event,$event.target)" ng-mouseleave="fymcHide()"></span></td>
+		    				    <td ng-bind="m.ajs"></td>
+		    				    <td ng-bind-html-unsafe="handleTb(m.tb)" ng-class="{'fd-td-color-up':changeStyleUp(m.tb),'fd-td-color-down':changeStyleDown(m.tb)}"></td>
+                                <td ng-bind-html-unsafe="handleZb(m.zb)" ng-show="isXq();"></td>
+    						</tr>
+    						
+    					</table>
+    				</li>
+    			</ul>
+    			<div class="fd-page-con">
+    				<div class="fd-page-text"><span>共<span class="fd-fy-count" ng-bind="total">2732</span>家<span class="js-xq-name"></span>，当前显示第<span ng-bind="index"></span>~<span ng-bind="pageNumEnd"></span>家</span></div>
+    				<div class="fd-page-item tcdPageCode">
+    					
+    				</div>
+    			</div>
+                <div class="fd-hint" id="jsFdHint"></div>
+                <form action="" class="fd-form" id="js-form">
+                    <input type="hidden" name="mapId" id="mapId" ng-model="mapId">
+                    <input type="hidden" name="ajlx" id="ajlx" ng-model="ajlx">
+                    <input type="hidden" name="spcx" id="spcx" ng-model="spcx">
+                    <input type="hidden" name="ksrq" id="ksrq" ng-model="ksrq">
+                    <input type="hidden" name="jsrq" id="jsrq" ng-model="jsrq"> 
+                    <input type="hidden" name="type" id="type" ng-model="type">
+                    <input type="hidden" name="fyjb" id="fyjb" ng-model="fyjb">
+                    <input type="hidden" name="pxlx" id="pxlx" ng-model="pxlx">
+                    <input type="hidden" name="pxmc" id="pxmc" ng-model="pxmc">
+                    <input type="hidden" name="xxkjb" id="xxkjb" ng-model="xxkjb">
+                    <input type="hidden" name="sffy" id="sffy" ng-model="sffy">
+                    <input type="hidden" name="pageNo" id="pageNo" ng-model="pageNo">
+                    <input type="hidden" name="pageSize" id="pageSize">
+                    <input type="hidden" name="title" id="title">
+                </form>
+    		</div>
+    	</div>
+    </div>
+    <script type="text/javascript" src="../js/setHtml.js"></script>
+    <script type="text/javascript" src="../js/common/require.js" data-main="../js/main.js"></script>
+</body>
+</html>

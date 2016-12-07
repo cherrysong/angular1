@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<title>司法统计可视化</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/common.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="../css/tree.css" media="all" />
+	
+</head>
+<body class="fd-body" data-js="js/index.js">
+<!--fd-container内容 -->
+    <div class="fd-container" ng-controller="sftjController">
+        <!--fd-header -->
+    	<header class="fd-header">
+	    	<div class="fd-header-icon">
+	    		<span class="fd-header-item-01"></span>
+	    		<span class="fd-header-item-02"></span>
+	    	</div>
+    	</header>
+    	<!--fd-header end-->
+    	<!-- fd-content-->
+    	<div class="fd-content">
+    	    <!--左侧组织机构树 -->
+    		<div class="fd-con-aside">
+    			<div class="fd-tree-search-wrap">
+                <div class="fd-tree-search-contain">
+                    <input type="text"    class="fd-input-search" name="" id="jsSearch"  placeholder="请输入关键词"/>
+                    <input type="submit"  class="fd-btn-search" name="" id="jsBtnSearch"  value="搜索"/>
+                    <div class="fd-menu-contain "   id="jsAutocompleter"></div>
+                </div>
+            </div>
+	            <div class="fd-tree-contain  fd-tree-contain-max"   id="jsTreeContainMax" >
+	                <ul class="fd-nav-tree-default blue " id="jsTreeMax"></ul>
+	                <div class="fd-scroll-track fd-scroll-track-max"></div>
+	            </div>
+    		</div>
+    		<!--组织机构树end-->
+    		<div class="fd-con-main">
+    		    <!--fd-con-page-top -->
+    			<div class="fd-con-page-top">
+	    			<div class="fd-page-nav">
+	    				 <label>统计时间:</label>
+	    				 <input type="text" class="fd-input Wdate" id="beginMonth" readonly="readonly">
+	    				 <label>至</label>
+	    				 <input type="text" class="fd-input Wdate" id="endMonth" readonly="readonly">
+	    				 <label class="fd-label-margin">案件类型:</label>
+	    				 <!--案件类型的时间选择框 -->
+	    				 <div class="fd-sel-con fd-input">
+		    	             <p class="fd-sel-item js-select-ajlx">
+			    	    	     <span class="fd-sel-con-left js-select-content-ajlx">全部</span>
+			    	              <span class="fd-sel-con-arrow"></span>
+		    	            </p>
+				    	    <dl class="fd-sel-list js-select-list-ajlx">
+				    	    	<dd ng-repeat="x in ajlx" data-ajlx="{{x.value}}" ng-click="getSpcxList($index)">{{x.name}}</dd>
+				    	    </dl>
+		                </div>
+		                <!--案件类型的时间选择框 end-->
+	    				 <label class="fd-label-margin">审判程序</label>
+	    				 <!-- 审判程序的选择框-->
+	    				  <div class="fd-sel-con fd-input">
+		    	             <p class="fd-sel-item js-select-spcx">
+			    	    	     <span class="fd-sel-con-left js-select-content-spcx">全部</span>
+			    	              <span class="fd-sel-con-arrow"></span>
+		    	            </p>
+				    	    <dl class="fd-sel-list js-select-list-spcx">
+				    	    	<dd ng-repeat="s in spcx" data-spcx="{{s.value}}">{{s.name}}</dd>
+				    	    </dl>
+		                </div>
+	    		    </div>
+    			</div>
+    			<!--fd-con-page-top end -->
+    			<!--fd-con-page-con -->
+    			<div class="fd-con-page-con">
+    			    <div class="fd-page-btn">
+    			    	<a class="fd-page-btn-item fd-btn-active">地域总体分析</a>
+    			    	<a class="fd-page-btn-item">趋势分析</a>
+    			    </div>
+    			    <h3 class="fd-sftj-title js-sftj-title" ng-bind="title"></h3>
+    			    <span class="fd-message js-message"></span>
+    			    <div class="fd-page-bottom fd-fx-container">
+    			    	<aside class="fd-fx-aside">
+				    	    <ul class="fd-fx-aside-ul js-fx-aside-ul">
+				    	    	<li class="fd-fx-aside-item-1 fd-aside-item" data="jc">
+						    		<div class="fd-fx-circle fd-circle-01">
+						    			<h4 class="fd-circle-text-01">旧存</h4>
+						    			<span class="fd-circle-text-02">数量：<em class="js-jc"></em></span>
+					    				<span class="fd-circle-text-02">同比：<em class="js-jctb"></em><span class="fd-arrow-span"></span></span></span>
+						    		</div>
+					    	    </li>
+					    		<li class="fd-fx-aside-item-2 fd-aside-item fd-active" data="xs">
+					    			<div class="fd-fx-circle fd-circle-02">
+					    				<h4 class="fd-circle-text-01">新收</h4>
+					    				<span class="fd-circle-text-02">数量：<em class="js-xs"></em></span>
+					    				<span class="fd-circle-text-02">同比：<em class="js-xstb"></em><span class="fd-arrow-span"></span></span>
+					    			</div>
+					    		</li>
+					    		<li class="fd-fx-aside-item-3 fd-aside-item" data="yj">
+					    			<div class="fd-fx-circle fd-circle-03">
+					    				<h4 class="fd-circle-text-01">已结</h4>
+					    				<span class="fd-circle-text-02">数量：<em class="js-yj"></em></span>
+					    				<span class="fd-circle-text-02">同比：<em class="js-yjtb"></em><span class="fd-arrow-span"></span></span>
+					    			</div>
+					    		</li>
+					    		<li class="fd-fx-aside-item-4 fd-aside-item" data="wj">
+					    			<div class="fd-fx-circle fd-circle-04">
+					    				<h4 class="fd-circle-text-01">未结</h4>
+					    				<span class="fd-circle-text-02">数量：<em class="js-wj"></em></span>
+					    				<span class="fd-circle-text-02">同比：<em class="js-wjtb"></em><span class="fd-arrow-span"></span></span>
+					    			</div>
+					    		</li>
+				    	    </ul>
+				    	</aside>
+				    	<iframe class="fd-iframe-main" id="iframe-main" name="iframe-main" src="" frameborder="0" width="100%" scrolling="no" height="100%"></iframe>
+    			    </div>
+    				<!--  -->
+    			</div>
+    			<!--fd-con-page-con  end-->
+    		</div>
+    	</div>
+    	<!-- fd-content  end-->
+    </div>
+ <!--fd-container内容 end--> 
+ <script type="text/javascript" src="../js/common/jQuery.v1.11.1.min.js"></script>
+ <script type="text/javascript" src="../js/setHtml.js"></script>
+ <script type="text/javascript" src="../js/common/require.js" data-main="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<title>趋势分析</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<script type="text/javascript" src="../js/common/jQuery.v1.11.1.min.js"></script>
+</head>
+<body data-js="js/qsfx.js" ng-controller="qsfxController">
+    <div class="fd-qsfx-container">
+    	<div class="fd-qsfx-left-con">
+    		<div class="fd-qsfx-top fd-qsfx-charts">
+    			<h3>趋势分析</h3>
+    			<div class="fd-qsfx-charts-div" id="js-qst"></div>
+    		</div>
+    		<div class="fd-qsfx-bottom fd-qsfx-charts">
+    			<h3>同比分析</h3>
+    			<div class="fd-qsfx-charts-div" id="js-tb"></div>
+    		</div>
+    	</div>
+    	<div class="fd-qsfx-right-con">
+    		<table class="fd-qsfx-right-table">
+    			<thead>
+    				<tr>
+    					<th><span class="fd-qsfx-right-title">案件排序</span></th>
+    					<th><a class="fd-list-btn js-list-btn fd-active" data="0" data-name="AJS"><span class="fd-list-btn-text">数量</span><span class="fd-arrow-down js-arrow"></span></a></th>
+    					<th><a class="fd-list-btn js-list-btn" data="" data-name="TB"><span class="fd-list-btn-text">同比</span><span class="fd-arrow-down js-arrow"></span></a></th>
+    				</tr>
+    			</thead>
+    			<tbody class="fd-qsfx-tbody">
+    				<tr class="fd-list-first" ng-repeat="n in ajlxList" data="{{n.ajlxId}}" ng-class="{'fd-tr-hj':$index==0,'fd-tr-active':isTrActive(n.ajlxId)}">
+    					<td data="{{n.ajlx}}" ng-bind-html-unsafe="fymcSubstring(n.ajlx)" ng-mouseenter="fymcHover($event,$event.target)" ng-mouseleave="hideFymc()"></td>
+    					<td ng-bind="n.ajs"></td>
+    					<td ng-bind-html-unsafe="handleTb(n.tb)" ng-class="{'fd-td-color-up':changeStyleUp(n.tb),'fd-td-color-down':changeStyleDown(n.tb)}"></td>
+    				</tr>
+    				
+    			</tbody>
+    		</table>
+            <div class="fd-hint" id="jsFdHint"></div>
+    	</div>
+    </div>
+    <script type="text/javascript" src="../js/setHtml.js"></script>
+    <script type="text/javascript" src="../js/common/require.js" data-main="../js/main.js"></script>
+</body>
+</html>

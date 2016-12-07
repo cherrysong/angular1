@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<title>地域分析</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<script type="text/javascript" src="../js/common/jQuery.v1.11.1.min.js"></script>
+</head>
+<body data-js="js/dyfx.js">
+    <div class="fd-dyfx-container" ng-controller="dyfxCtrl">
+    	<div class="fd-dyfx-map">
+    		<h3 class="fd-dyfx-title">案件排名</h3>
+    		<p class="fd-dyfx-btn">
+    			<a class="fd-btn-item fd-btn-item-01 js-ajs fd-active" >数量</a>
+    			<a class="fd-btn-item fd-btn-item-02 js-tb ">同比</a>
+    		</p>
+    		<div class="fd-map" id="map"></div>
+            <div class="fd-color-control-contain"  id="js-color-control">
+                <div class="fd-control-track fd-control-up "><span  class="fd-count">1000</span></div>
+                <div class="fd-control-track  fd-control-down"><span class="fd-count" >0</span><</div>
+                <div class="fd-color-control"></div>
+            </div>
+    	</div>
+    	<div class="fd-dyfx-list">
+    		<ul class="fd-dyfx-list-nav js-dyfx-list-nav">
+    			<li class="fd-active"><a>辖区</a></li>
+    			<li><a>高级人民法院</a></li>
+    			<li><a>中级人民法院</a></li>
+    			<li><a>基层人民法院</a></li>
+    		</ul>
+    		<table class="fd-table-containter">
+    			<thead>
+    			    <tr>
+    			       <th><a class="fd-list-all js-list-all">查看全部排名</a></th>
+    			       <th>
+                           <a class="fd-list-btn js-list-btn fd-active" data="0" data-name="AJS" id="js-ajs-sort"><span class="fd-list-btn-text">数量</span><span class="fd-arrow-down js-arrow"></span></a></th>
+    			       <th>
+                           <a class="fd-list-btn js-list-btn" data-name="TB" id="js-tb-sort"><span class="fd-list-btn-text">同比</span><span class="fd-arrow-down js-arrow"></span>
+                       </th>
+                       <th ng-show="isXq()">
+                           占比
+                       </th>
+    			    </tr>
+    			</thead>
+    			<tbody class="fd-dyfx-tbody">
+    				<tr ng-repeat="x in rightList">
+    				    <td class="fd-first-td"><span class="fd-list-num" ng-bind="$index+1"></span><span data="{{x.fyjc}}" ng-bind-html-unsafe="fymcSubstring(x.fyjc)" ng-mouseenter="fymcHover($event,$event.target)" ng-mouseleave="hideFymc()"></span></td>
+    				    <td ng-bind="x.ajs"></td>
+    				    <td ng-bind-html-unsafe="handleTb(x.tb)" ng-class="{'fd-td-color-up':changeStyleUp(x.tb),'fd-td-color-down':changeStyleDown(x.tb)}"></td>
+                        <td ng-bind-html-unsafe="handleZb(x.zb)" ng-show="isXq()">           
+                        </td>
+    				</tr>
+    				
+    			</tbody>
+    		</table>
+            
+    	</div>
+        <div class="fd-hint" id="jsFdHint"></div>
+    </div>
+    <script type="text/javascript" src="../js/setHtml.js"></script>
+    <script type="text/javascript" src="../js/common/require.js" data-main="../js/main.js"></script>
+</body>
+</html>

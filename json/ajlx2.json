@@ -1,0 +1,218 @@
+{
+    "message": "成功",
+    "result": {
+        "ajlx": [
+            {
+                "name": "全部",
+                "value": "00",
+                "list": [
+                    {
+                        "name": "全部",
+                        "value": "00",
+                        "sty": "fd-disable",
+                        "valid": 0
+                    },
+                    {
+                        "name": "一审",
+                        "value": "01",
+                        "sty": "fd-disable",
+                        "valid": 0
+                    },
+                    {
+                        "name": "二审",
+                        "value": "02",
+                        "sty": "fd-disable",
+                        "valid": 0
+                    },
+                    {
+                        "name": "再审",
+                        "value": "03",
+                        "sty": "fd-disable",
+                        "valid": 0
+                    }
+                ]
+            },
+            {
+                "name": "刑事",
+                "value": "01",
+                "list": [
+                    {
+                        "name": "全部",
+                        "value": "00",
+                        "sty": ""
+                    },
+                    {
+                        "name": "一审",
+                        "value": "01",
+                        "sty": ""
+                    },
+                    {
+                        "name": "二审",
+                        "value": "02",
+                        "jcyflag": 0
+                    },
+                    {
+                        "name": "再审",
+                        "value": "03"
+                    },
+                    {
+                        "name": "复核",
+                        "value": "04",
+                        "zyflag": 0,
+                        "jcyflag": 0
+                    },
+                    {
+                        "name": "刑罚变更",
+                        "sty": "fd-bg-show",
+                        "value": "05"
+                    },
+                    {
+                        "name": "强制医疗",
+                        "sty": "fd-bg-show",
+                        "value": "06",
+                        "gyflag": 0,
+                        "zyflag": 0
+                    },
+                    {
+                        "name": "强制医疗复议",
+                        "value": "08",
+                        "gyflag": 0,
+                        "jcyflag": 0
+                    },
+                    {
+                        "name": "解除强制医疗",
+                        "value": "07",
+                        "gyflag": 0,
+                        "zyflag": 0
+                    }
+                ]
+            },
+            {
+                "name": "民事",
+                "value": "02",
+                "list": [
+                    {
+                        "name": "全部",
+                        "value": "00",
+                        "sty": ""
+                    },
+                    {
+                        "name": "一审",
+                        "value": "01",
+                        "sty": ""
+                    },
+                    {
+                        "name": "二审",
+                        "value": "02",
+                        "jcyflag": 0
+                    },
+                    {
+                        "name": "再审",
+                        "value": "03",
+                        "sty": ""
+                    },
+                    {
+                        "name": "特殊",
+                        "value": "04",
+                        "gyflag": 0,
+                        "zyflag": 0
+                    },
+                    {
+                        "name": "破产",
+                        "value": "05",
+                        "zyflag": 0,
+                        "gyflag": 0
+                    }
+                ]
+            },
+            {
+                "name": "行政",
+                "value": "03",
+                "list": [
+                    {
+                        "name": "全部",
+                        "value": "00"
+                    },
+                    {
+                        "name": "一审",
+                        "value": "01"
+                    },
+                    {
+                        "name": "二审",
+                        "value": "02"
+                    },
+                    {
+                        "name": "再审",
+                        "value": "03"
+                    },
+                    {
+                        "name": "行政非诉审查",
+                        "value":"04"
+                    }
+                ]
+            },
+            {
+                "name": "赔偿",
+                "value": "04",
+                "xzqyflag": 0,
+                "list": [
+                    {
+                        "name": "全部",
+                        "value": "00"
+                    },
+                    {
+                        "name": "赔偿确认",
+                        "value": "01"
+                    },
+                    {
+                        "name": "司法赔偿",
+                        "value": "02"
+                    }
+                ]
+            },
+            {
+                "name": "执行类",
+                "value": "05",
+                "xzqyflag": 0,
+                "list": [
+                    {
+                        "name": "全部",
+                        "value": "00"
+                    },
+                    {
+                        "name": "执行案件",
+                        "value": "01"
+                    }
+                ]
+            },
+            {
+                "name": "其他",
+                "value": "06",
+                "valid": 0,
+                "xzqyflag": 0,
+                "list": [
+                    {
+                        "name": "全部",
+                        "value": "00"
+                    },
+                    {
+                        "name": "再审审查与审判监督",
+                        "value": "01"
+                    },
+                    {
+                        "name": "信访",
+                        "value": "02"
+                    },
+                    {
+                        "name": "诉前保全",
+                        "value": "03"
+                    },
+                    {
+                        "name": "纪检监察",
+                        "value": "04"
+                    }
+                ]
+            }
+        ]
+    }
+}
